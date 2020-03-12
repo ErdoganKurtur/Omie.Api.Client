@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Omie.Api.Client.Abstractions;
+using OmieCustomer = Omie.Api.Client.Models.Customer;
 
 namespace Omie.Api.Client.Request.CustomerParameters {
     /// <remarks/>
@@ -15,5 +16,9 @@ namespace Omie.Api.Client.Request.CustomerParameters {
         /// <remarks/>
         [JsonProperty("apenas_importado_api")]
         public string OnlyApiRecords { get; set; }
+
+        /// <remarks/>
+        [JsonProperty("clientesFiltro")]
+        public OmieCustomer Filter { get; set; }
     }
 }

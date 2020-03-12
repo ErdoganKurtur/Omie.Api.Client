@@ -97,9 +97,10 @@ namespace Omie.Api.Client.Resources {
         /// </summary>
         /// <param name="limit">Limit request results</param>
         /// <param name="currentPage">Current request page</param>
+        /// <param name="modelFilter">Query model filter</param>
         /// <returns>ApiResult - TModel</returns>
-        public async Task<TGetManyResult> GetManyAsync(int limit = 50, int? currentPage = null) =>
-            await RequestWithPolicy(GetModels(limit, currentPage)).ConfigureAwait(false);
+        public async Task<TGetManyResult> GetManyAsync(int limit = 50, int? currentPage = null, TModel modelFilter = default(TModel)) =>
+            await RequestWithPolicy(GetModels(limit, currentPage, modelFilter)).ConfigureAwait(false);
 
         /// <summary>
         /// Insert one model into api
@@ -118,13 +119,14 @@ namespace Omie.Api.Client.Resources {
         /// </summary>
         /// <param name="limit">Limit request results</param>
         /// <param name="currentPage">Current request page</param>
+        /// <param name="modelFilter">Query model filter</param>
         /// <returns></returns>
-        protected Func<Task<TGetManyResult>> GetModels(int limit = 50, int? currentPage = null) {
+        protected Func<Task<TGetManyResult>> GetModels(int limit = 50, int? currentPage = null, TModel modelFilter = default(TModel)) {
             var apiRequest = new ApiRequest() {
                 Action = GetManyActionName,
                 ApplicationId = _applicationId,
                 Token = _token,
-                Parameters = ParseRequestManyParameters(limit, currentPage)
+                Parameters = ParseRequestManyParameters(limit, currentPage, modelFilter)
             };
 
             return () => _OmieApiClient.PostAsync<TGetManyResult>(ResourceGroupName, ResourceName, apiRequest);
@@ -140,10 +142,10 @@ namespace Omie.Api.Client.Resources {
                 Action = InsertActionName,
                 ApplicationId = _applicationId,
                 Token = _token,
-                Parameters = BuildInsertParameters(modelToInsert)
+                Parameters = BuildDefaultParameters(modelToInsert)
             };
 
-            return ()=> _OmieApiClient.PostAsync<TInsertResult>(ResourceGroupName, ResourceName, apiRequest);
+            return () => _OmieApiClient.PostAsync<TInsertResult>(ResourceGroupName, ResourceName, apiRequest);
         }
 
 
@@ -161,11 +163,11 @@ namespace Omie.Api.Client.Resources {
         /// </summary>
         /// <param name="modelToInsert"></param>
         /// <returns></returns>
-        protected virtual IEnumerable<IRequestParameter> BuildInsertParameters(TModel modelToInsert) {
+        protected virtual IEnumerable<IRequestParameter> BuildDefaultParameters(TModel modelToInsert) {
             yield return modelToInsert;
         }
 
-        internal abstract IEnumerable<IRequestParameter> ParseRequestManyParameters(int limit, int? currentPage);
+        internal abstract IEnumerable<IRequestParameter> ParseRequestManyParameters(int limit, int? currentPage, TModel modelFilter);
 
         #endregion
     }

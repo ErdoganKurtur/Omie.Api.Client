@@ -38,11 +38,12 @@ namespace Omie.Api.Client.Resources {
 
         #region Override Methods
 
-        internal override IEnumerable<IRequestParameter> ParseRequestManyParameters(int limit, int? currentPage) {
+        internal override IEnumerable<IRequestParameter> ParseRequestManyParameters(int limit, int? currentPage, Customer modelFilter) {
             yield return new GetManyParameters() {
                 Limit = limit,
                 OnlyApiRecords = "N",
-                Page = currentPage ?? 1
+                Page = currentPage ?? 1,
+                Filter = modelFilter
             };
         }
 

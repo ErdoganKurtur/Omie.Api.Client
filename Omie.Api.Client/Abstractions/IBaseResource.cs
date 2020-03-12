@@ -17,8 +17,9 @@ namespace Omie.Api.Client.Abstractions {
         /// </summary>
         /// <param name="limit">Limit request results</param>
         /// <param name="currentPage">Current request page</param>
+        /// <param name="filter">Current query filter</param>
         /// <returns>ApiResult - TModel</returns>
-        Task<TGetManyResult> GetManyAsync(int limit = 50, int? currentPage = null);
+        Task<TGetManyResult> GetManyAsync(int limit = 50, int? currentPage = null, TModel filter = default(TModel));
 
         /// <summary>
         /// Insert one model into api

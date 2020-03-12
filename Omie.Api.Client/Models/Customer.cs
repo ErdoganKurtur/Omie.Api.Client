@@ -16,11 +16,11 @@ namespace Omie.Api.Client.Models {
 
         /// <remarks/>
         [JsonProperty("bloquear_faturamento")]
-        public string BlackBilling { get; set; }
+        public string BlockBilling { get; set; }
 
         /// <remarks/>
         [JsonProperty("cep")]
-        public string ZipCode { get; set; }
+        public string PostalCode { get; set; }
 
         /// <remarks/>
         [JsonProperty("cidade")]
