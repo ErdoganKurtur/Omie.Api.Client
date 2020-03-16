@@ -17,6 +17,9 @@ namespace Omie.Api.Client {
         private readonly Lazy<ICustomerResource> _customerResouce =
             new Lazy<ICustomerResource>(() => new CustomerResource(_clientOptions.Token, _clientOptions.ApplicationId));
 
+        private readonly Lazy<ICountryResource> _countryResouce =
+            new Lazy<ICountryResource>(() => new CountryResource(_clientOptions.Token, _clientOptions.ApplicationId));
+
         #endregion
 
         #region Properties
@@ -25,6 +28,11 @@ namespace Omie.Api.Client {
         /// Customers resources
         /// </summary>
         public ICustomerResource Customers => _customerResouce.Value;
+
+        /// <summary>
+        /// Country resources
+        /// </summary>
+        public ICountryResource Countrys => _countryResouce.Value;
 
         #endregion
 

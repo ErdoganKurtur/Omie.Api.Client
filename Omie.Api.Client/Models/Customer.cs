@@ -8,7 +8,7 @@ namespace Omie.Api.Client.Models {
     public sealed class Customer : IRequestParameter {
         /// <remarks/>
         [JsonProperty("codigo_cliente_omie")]
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         /// <remarks/>
         [JsonProperty("bairro")]
@@ -92,7 +92,7 @@ namespace Omie.Api.Client.Models {
 
         /// <remarks/>
         [JsonProperty("pessoa_fisica")]
-        public string Name { get; set; }
+        public string IsFisicalPerson { get; set; }
 
         /// <remarks/>
         [JsonProperty("razao_social")]

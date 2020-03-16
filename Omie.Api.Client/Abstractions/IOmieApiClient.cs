@@ -6,7 +6,7 @@ namespace Omie.Api.Client.Abstractions {
     /// <summary>
     /// Omie api client
     /// </summary>
-    [Headers("accept: application/json")]
+    [Headers("accept: application/json","Content-Type: application/json")]
     internal interface IOmieApiClient {
         /// <summary>
         /// Do a request with POST method
@@ -17,9 +17,10 @@ namespace Omie.Api.Client.Abstractions {
         /// <param name="requestParameter">Api request parameter</param>
         /// <returns></returns>
         [Post("/api/v1/{resourceGroupName}/{modelName}/")]
+        
         Task<T> PostAsync<T>(
             [AliasAs("resourceGroupName")] string resourceGroupName,
             [AliasAs("modelName")] string modelName,
-            [Body] ApiRequest requestParameter) where T : class;
+            [Body(BodySerializationMethod.Serialized)] ApiRequest requestParameter) where T : class;
     }
 }

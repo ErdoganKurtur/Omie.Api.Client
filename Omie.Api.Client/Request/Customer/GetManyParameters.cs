@@ -4,6 +4,7 @@ using OmieCustomer = Omie.Api.Client.Models.Customer;
 
 namespace Omie.Api.Client.Request.CustomerParameters {
     /// <remarks/>
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public sealed class GetManyParameters : IRequestParameter {
         /// <remarks/>
         [JsonProperty("pagina")]

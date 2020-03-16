@@ -12,12 +12,13 @@
             <typeparam name="TGetManyResult">GetMany request result</typeparam>
             <typeparam name="TInsertResult">Insert request result</typeparam>
         </member>
-        <member name="M:Omie.Api.Client.Abstractions.IBaseResource`3.GetManyAsync(System.Int32,System.Nullable{System.Int32})">
+        <member name="M:Omie.Api.Client.Abstractions.IBaseResource`3.GetManyAsync(System.Int32,System.Nullable{System.Int32},`0)">
             <summary>
             Get model´s async
             </summary>
             <param name="limit">Limit request results</param>
             <param name="currentPage">Current request page</param>
+            <param name="filter">Current query filter</param>
             <returns>ApiResult - TModel</returns>
         </member>
         <member name="M:Omie.Api.Client.Abstractions.IBaseResource`3.InsertAsync(`0)">
@@ -112,10 +113,10 @@
         <member name="P:Omie.Api.Client.Models.Customer.Neighborhood">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.Customer.BlackBilling">
+        <member name="P:Omie.Api.Client.Models.Customer.BlockBilling">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.Customer.ZipCode">
+        <member name="P:Omie.Api.Client.Models.Customer.PostalCode">
             <remarks/>
         </member>
         <member name="P:Omie.Api.Client.Models.Customer.City">
@@ -239,6 +240,15 @@
             </summary>
             <param name="clientOptions">Api client options</param>
         </member>
+        <member name="T:Omie.Api.Client.Request.ApiExceptionResult">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.ApiExceptionResult.FaultString">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.ApiExceptionResult.FaultCode">
+            <remarks/>
+        </member>
         <member name="T:Omie.Api.Client.Request.ApiGetManyResult">
             <remarks/>
         </member>
@@ -255,6 +265,9 @@
             <remarks/>
         </member>
         <member name="P:Omie.Api.Client.Request.CustomerParameters.GetManyParameters.OnlyApiRecords">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.CustomerParameters.GetManyParameters.Filter">
             <remarks/>
         </member>
         <member name="T:Omie.Api.Client.Request.Customer.InsertResult">
@@ -315,12 +328,13 @@
             <param name="applicationId">Omie api application id</param>
             <param name="baseUrl">Omie api base url</param>
         </member>
-        <member name="M:Omie.Api.Client.Resources.BaseResource`3.GetManyAsync(System.Int32,System.Nullable{System.Int32})">
+        <member name="M:Omie.Api.Client.Resources.BaseResource`3.GetManyAsync(System.Int32,System.Nullable{System.Int32},`0)">
             <summary>
             Get model´s async
             </summary>
             <param name="limit">Limit request results</param>
             <param name="currentPage">Current request page</param>
+            <param name="modelFilter">Query model filter</param>
             <returns>ApiResult - TModel</returns>
         </member>
         <member name="M:Omie.Api.Client.Resources.BaseResource`3.InsertAsync(`0)">
@@ -330,12 +344,13 @@
             <param name="modelToInsert">Model to insert</param>
             <returns></returns>
         </member>
-        <member name="M:Omie.Api.Client.Resources.BaseResource`3.GetModels(System.Int32,System.Nullable{System.Int32})">
+        <member name="M:Omie.Api.Client.Resources.BaseResource`3.GetModels(System.Int32,System.Nullable{System.Int32},`0)">
             <summary>
             Get api function for models
             </summary>
             <param name="limit">Limit request results</param>
             <param name="currentPage">Current request page</param>
+            <param name="modelFilter">Query model filter</param>
             <returns></returns>
         </member>
         <member name="M:Omie.Api.Client.Resources.BaseResource`3.InsertModel(`0)">
@@ -353,7 +368,7 @@
             <param name="func">Function to get async request</param>
             <returns>Request result</returns>
         </member>
-        <member name="M:Omie.Api.Client.Resources.BaseResource`3.BuildInsertParameters(`0)">
+        <member name="M:Omie.Api.Client.Resources.BaseResource`3.BuildDefaultParameters(`0)">
             <summary>
             Build a insert request parameters 
             </summary>
