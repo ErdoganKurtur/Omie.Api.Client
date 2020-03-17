@@ -88,7 +88,7 @@ namespace Omie.Api.Client.Models {
 
         /// <remarks/>
         [JsonProperty("observacao")]
-        public string Observation { get; set; }
+        public string Notes { get; set; }
 
         /// <remarks/>
         [JsonProperty("pessoa_fisica")]

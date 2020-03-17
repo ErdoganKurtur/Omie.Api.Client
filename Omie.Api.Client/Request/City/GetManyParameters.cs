@@ -10,7 +10,7 @@ namespace Omie.Api.Client.Request.City {
 
         /// <remarks/>
         [JsonProperty("registros_por_pagina")]
-        public int Limit { get; set; }
+        public int PageLimit { get; set; }
 
         /// <remarks/>
         [JsonProperty("apenas_importado_api")]

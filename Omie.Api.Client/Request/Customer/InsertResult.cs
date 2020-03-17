@@ -20,6 +20,6 @@ namespace Omie.Api.Client.Request.Customer {
 
         /// <remarks/>
         [JsonProperty("descricao_status")]
-        public string DescriptionStatus { get; set; }
+        public string StatusDescription { get; set; }
     }
 }

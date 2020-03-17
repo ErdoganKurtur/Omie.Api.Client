@@ -42,7 +42,7 @@ namespace Omie.Api.Client.Resources {
 
         internal override IEnumerable<IRequestParameter> ParseRequestManyParameters(int limit, int? currentPage, City modelFilter) {
             yield return new GetManyParameters() {
-                Limit = limit,
+                PageLimit = limit,
                 OnlyApiRecords = "N",
                 Page = currentPage ?? 1
             };
