@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
+    <AssemblyName>Omie.Api.Client</AssemblyName>
+    <RootNamespace>Omie.Api.Client</RootNamespace>
+    <PackageId>Omie.Api.Client</PackageId>
+
+    <Description>A .netstandard library to work with Omie APIs.</Description>
+
+    <PackageProjectUrl>https://github.com/simixsistemas/Omie.Api.Client</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/simixsistemas/Omie.Api.Client</RepositoryUrl>
+    <PackageTags>omie,api,client</PackageTags>
+
+    <Authors>Felipe Baltazar</Authors>
+    <Company>Símix Sistemas</Company>
+    <Owners>Símix Sistemas</Owners>
+    <Copyright>Copyright 2020</Copyright>
+    
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <DocumentationFile>.\Omie.Api.Client\Omie.Api.Client.xml</DocumentationFile>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Polly" Version="7.2.0" />
+    <PackageReference Include="Refit" Version="5.0.23" />
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
