@@ -42,8 +42,8 @@ namespace Omie.Api.Client.Resources {
 
         internal override IEnumerable<IRequestParameter> ParseRequestManyParameters(int limit, int? currentPage, Country modelFilter) {
             yield return new GetManyParameters() {
-                Description = modelFilter.Description,
-                Id = modelFilter.Id
+                Description = modelFilter?.Description ?? string.Empty,
+                Id = modelFilter?.Id ?? string.Empty
             };
         }
 

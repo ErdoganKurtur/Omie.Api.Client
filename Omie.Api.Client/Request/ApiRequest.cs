@@ -3,6 +3,7 @@ using Omie.Api.Client.Abstractions;
 using System.Collections.Generic;
 
 namespace Omie.Api.Client.Request {
+    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     internal sealed class ApiRequest {
         [JsonProperty("call")]
         public string Action { get; set; }

@@ -6,6 +6,7 @@ using Polly;
 using Refit;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -99,8 +100,12 @@ namespace Omie.Api.Client.Resources {
         /// <param name="currentPage">Current request page</param>
         /// <param name="modelFilter">Query model filter</param>
         /// <returns>ApiResult - TModel</returns>
-        public async Task<TGetManyResult> GetManyAsync(int limit = 50, int? currentPage = null, TModel modelFilter = default(TModel)) =>
-            await RequestWithPolicy(GetModels(limit, currentPage, modelFilter)).ConfigureAwait(false);
+        public async Task<TGetManyResult> GetManyAsync(int limit = 50, int? currentPage = null, TModel modelFilter = default(TModel)) {
+            if (limit > 50)
+                throw new ArgumentOutOfRangeException("Max pagging size cant be grather then 50");
+
+            return await RequestWithPolicy(GetModels(limit, currentPage, modelFilter)).ConfigureAwait(false);
+        }
 
         /// <summary>
         /// Insert one model into api
@@ -122,11 +127,12 @@ namespace Omie.Api.Client.Resources {
         /// <param name="modelFilter">Query model filter</param>
         /// <returns></returns>
         protected Func<Task<TGetManyResult>> GetModels(int limit = 50, int? currentPage = null, TModel modelFilter = default(TModel)) {
+            var parameters = ParseRequestManyParameters(limit, currentPage, modelFilter);
             var apiRequest = new ApiRequest() {
                 Action = GetManyActionName,
                 ApplicationId = _applicationId,
                 Token = _token,
-                Parameters = ParseRequestManyParameters(limit, currentPage, modelFilter)
+                Parameters = parameters.Any() ? parameters : null
             };
 
             return () => _OmieApiClient.PostAsync<TGetManyResult>(ResourceGroupName, ResourceName, apiRequest);
@@ -138,11 +144,12 @@ namespace Omie.Api.Client.Resources {
         /// <param name="modelToInsert">Model to insert on api</param>
         /// <returns></returns>
         protected Func<Task<TInsertResult>> InsertModel(TModel modelToInsert) {
+            var parameters = BuildDefaultParameters(modelToInsert);
             var apiRequest = new ApiRequest() {
                 Action = InsertActionName,
                 ApplicationId = _applicationId,
                 Token = _token,
-                Parameters = BuildDefaultParameters(modelToInsert)
+                Parameters = parameters.Any() ? parameters : null
             };
 
             return () => _OmieApiClient.PostAsync<TInsertResult>(ResourceGroupName, ResourceName, apiRequest);

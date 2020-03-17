@@ -2,8 +2,6 @@
 using Omie.Api.Client.Helpers;
 using Omie.Api.Client.Resources;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Omie.Api.Client {
     /// <summary>
@@ -14,11 +12,14 @@ namespace Omie.Api.Client {
 
         private static OmieApiClientOptions _clientOptions;
 
-        private readonly Lazy<ICustomerResource> _customerResouce =
+        private readonly Lazy<ICustomerResource> _customerResource =
             new Lazy<ICustomerResource>(() => new CustomerResource(_clientOptions.Token, _clientOptions.ApplicationId));
 
-        private readonly Lazy<ICountryResource> _countryResouce =
+        private readonly Lazy<ICountryResource> _countryResource =
             new Lazy<ICountryResource>(() => new CountryResource(_clientOptions.Token, _clientOptions.ApplicationId));
+
+        private readonly Lazy<ICityResource> _cityResource =
+            new Lazy<ICityResource>(() => new CityResource(_clientOptions.Token, _clientOptions.ApplicationId));
 
         #endregion
 
@@ -27,12 +28,17 @@ namespace Omie.Api.Client {
         /// <summary>
         /// Customers resources
         /// </summary>
-        public ICustomerResource Customers => _customerResouce.Value;
+        public ICustomerResource Customers => _customerResource.Value;
 
         /// <summary>
         /// Country resources
         /// </summary>
-        public ICountryResource Countrys => _countryResouce.Value;
+        public ICountryResource Countrys => _countryResource.Value;
+
+        /// <summary>
+        /// City resources
+        /// </summary>
+        public ICityResource Citys => _cityResource.Value;
 
         #endregion
 

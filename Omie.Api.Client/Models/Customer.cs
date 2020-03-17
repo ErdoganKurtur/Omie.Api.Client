@@ -28,7 +28,7 @@ namespace Omie.Api.Client.Models {
 
         /// <remarks/>
         [JsonProperty("cidade_ibge")]
-        public string CityId { get; set; }
+        public string CityIbgeId { get; set; }
 
         /// <remarks/>
         [JsonProperty("cnpj_cpf")]

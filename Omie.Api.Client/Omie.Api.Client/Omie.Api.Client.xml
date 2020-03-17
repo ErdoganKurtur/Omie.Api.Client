@@ -28,6 +28,12 @@
             <param name="modelToInsert">Model to insert</param>
             <returns>ApiResult - TInsertResult</returns>
         </member>
+        <member name="T:Omie.Api.Client.Abstractions.ICityResource">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Abstractions.ICountryResource">
+            <remarks/>
+        </member>
         <member name="T:Omie.Api.Client.Abstractions.ICustomerResource">
             <remarks/>
         </member>
@@ -83,25 +89,31 @@
             Omie api application id
             </summary>
         </member>
-        <member name="T:Omie.Api.Client.Models.ApiResult`1">
-            <summary>
-            Omie api default response
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="P:Omie.Api.Client.Models.ApiResult`1.Page">
+        <member name="T:Omie.Api.Client.Models.City">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.ApiResult`1.TotalPages">
+        <member name="P:Omie.Api.Client.Models.City.Id">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.ApiResult`1.Records">
+        <member name="P:Omie.Api.Client.Models.City.Name">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.ApiResult`1.TotalRecords">
+        <member name="P:Omie.Api.Client.Models.City.UF">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.ApiResult`1.Results">
+        <member name="P:Omie.Api.Client.Models.City.IbgeId">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Models.City.SiafiID">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Models.Country">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Models.Country.Id">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Models.Country.Description">
             <remarks/>
         </member>
         <member name="T:Omie.Api.Client.Models.Customer">
@@ -122,7 +134,7 @@
         <member name="P:Omie.Api.Client.Models.Customer.City">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.Customer.CityId">
+        <member name="P:Omie.Api.Client.Models.Customer.CityIbgeId">
             <remarks/>
         </member>
         <member name="P:Omie.Api.Client.Models.Customer.CnpjCpf">
@@ -170,7 +182,7 @@
         <member name="P:Omie.Api.Client.Models.Customer.Observation">
             <remarks/>
         </member>
-        <member name="P:Omie.Api.Client.Models.Customer.Name">
+        <member name="P:Omie.Api.Client.Models.Customer.IsFisicalPerson">
             <remarks/>
         </member>
         <member name="P:Omie.Api.Client.Models.Customer.CorporateName">
@@ -224,6 +236,27 @@
         <member name="P:Omie.Api.Client.Models.Tag.Name">
             <remarks/>
         </member>
+        <member name="T:Omie.Api.Client.Models.ApiResult`1">
+            <summary>
+            Omie api default response
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Omie.Api.Client.Models.ApiResult`1.Page">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Models.ApiResult`1.TotalPages">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Models.ApiResult`1.Records">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Models.ApiResult`1.TotalRecords">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Models.ApiResult`1.Results">
+            <remarks/>
+        </member>
         <member name="T:Omie.Api.Client.OmieClient">
             <summary>
             Omie client
@@ -232,6 +265,16 @@
         <member name="P:Omie.Api.Client.OmieClient.Customers">
             <summary>
             Customers resources
+            </summary>
+        </member>
+        <member name="P:Omie.Api.Client.OmieClient.Countrys">
+            <summary>
+            Country resources
+            </summary>
+        </member>
+        <member name="P:Omie.Api.Client.OmieClient.Citys">
+            <summary>
+            City resources
             </summary>
         </member>
         <member name="M:Omie.Api.Client.OmieClient.#ctor(Omie.Api.Client.Helpers.OmieApiClientOptions)">
@@ -247,6 +290,45 @@
             <remarks/>
         </member>
         <member name="P:Omie.Api.Client.Request.ApiExceptionResult.FaultCode">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Request.City.ApiGetManyResult">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.City.ApiGetManyResult.Results">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Request.City.GetManyParameters">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.City.GetManyParameters.Page">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.City.GetManyParameters.Limit">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.City.GetManyParameters.OnlyApiRecords">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Request.City.InsertResult">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Request.Country.ApiGetManyResult">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.Country.ApiGetManyResult.Results">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Request.Country.GetManyParameters">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.Country.GetManyParameters.Id">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Request.Country.GetManyParameters.Description">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Request.Country.InsertResult">
             <remarks/>
         </member>
         <member name="T:Omie.Api.Client.Request.ApiGetManyResult">
@@ -374,6 +456,48 @@
             </summary>
             <param name="modelToInsert"></param>
             <returns></returns>
+        </member>
+        <member name="T:Omie.Api.Client.Resources.CityResource">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CityResource.ResourceName">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CityResource.ResourceGroupName">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CityResource.GetManyActionName">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CityResource.InsertActionName">
+            <remarks/>
+        </member>
+        <member name="M:Omie.Api.Client.Resources.CityResource.#ctor(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Omie.Api.Client.Resources.CityResource.#ctor(System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="T:Omie.Api.Client.Resources.CountryResource">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CountryResource.ResourceName">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CountryResource.ResourceGroupName">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CountryResource.GetManyActionName">
+            <remarks/>
+        </member>
+        <member name="P:Omie.Api.Client.Resources.CountryResource.InsertActionName">
+            <remarks/>
+        </member>
+        <member name="M:Omie.Api.Client.Resources.CountryResource.#ctor(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Omie.Api.Client.Resources.CountryResource.#ctor(System.String,System.String,System.String)">
+            <remarks/>
         </member>
         <member name="T:Omie.Api.Client.Resources.CustomerResource">
             <remarks/>
