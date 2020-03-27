@@ -21,6 +21,8 @@
     
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <DocumentationFile>.\Omie.Api.Client\Omie.Api.Client.xml</DocumentationFile>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
   </PropertyGroup>
   
   <ItemGroup>
