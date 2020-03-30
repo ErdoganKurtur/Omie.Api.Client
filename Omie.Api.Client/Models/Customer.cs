@@ -92,7 +92,7 @@ namespace Omie.Api.Client.Models {
 
         /// <remarks/>
         [JsonProperty("pessoa_fisica")]
-        public string IsFisicalPerson { get; set; }
+        public string IsPrivateEntity { get; set; }
 
         /// <remarks/>
         [JsonProperty("razao_social")]
